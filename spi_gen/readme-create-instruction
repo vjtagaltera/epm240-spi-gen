@@ -52,3 +52,10 @@ assign pins: observed 100us 2v on pin-77 at power-up
 
 note pin 77 is connected to the LED via a jumper
 
+
+create again the project: 
+
+  same as initial creation, except add only these files: 
+    spi_gen.sdc, spi_gen_top.bdf, sample_spi_gen_counter.v, sample_clk12m_counter.v
+
+
