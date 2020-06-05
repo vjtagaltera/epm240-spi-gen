@@ -13,6 +13,12 @@ added source file:
 
     -rwxrwxr-x+   2845 Jun  4 19:52 sample_spi_gen_counter.v
 
+added other files:
+
+    -rwxrwxr-x+     6935 Jun  5 11:23 spi_gen_top.bdf
+    -rw-rw-r--+      795 Jun  5 12:30 spi_gen.sdc
+    -rwxrwxr-x+  1746414 Jun  5 12:47 readme-top-bdf.png
+
 
 create a new project using wizard: 
 
@@ -41,6 +47,7 @@ assign pins: observed 100us 2v on pin-77 at power-up
 
   input:   pin-12  3.3v lvttl  16ma
   output:  pin-77  3.3v lvttl  16ma
+  output:  pin-75/73  3.3v lvttl 16ma for clk1 clk2
 
 
 note pin 77 is connected to the LED via a jumper
