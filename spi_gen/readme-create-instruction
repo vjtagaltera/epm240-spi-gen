@@ -1,0 +1,47 @@
+
+
+initial files:
+
+    ls -l 
+    -rw-rw-r--+      0 Jun  4 19:51 readme-create-instruction
+    -rwxrwxr-x+   1524 Jul 24  2018 sample_backpressure.v
+    -rwxrwxr-x+   1007 Jul 24  2018 sample_clk12m_counter.v
+    -rwxrwxr-x+    825 Jul 24  2018 sample_counter.v
+    -rwxrwxr-x+   5666 Jul 24  2018 sample_vh9x6_counter.v
+
+added source file:
+
+    -rwxrwxr-x+   2845 Jun  4 19:52 sample_spi_gen_counter.v
+
+
+create a new project using wizard: 
+
+  under the source directory, create a project named spi_gen_proj, and use spi_gen_top as 
+  the top-level design entity. create it as an empty project. choose EPM240T100C5 device. 
+
+
+create the top level design:
+
+  from the "file" menu choose new, then "design files" / "block diagram /schematic file".   
+  save as "spi_gen_top.bdf" and check "add file to project" in the dialog. 
+
+  copy sample_vh9x6_counter.v to sample_spi_gen_counter.v, edit to rename the module in it.
+  from the "project" menu, add the *.v files to the project. 
+
+
+create the symbols from .v files: add the symbols to the design
+
+  navigate to sample_spi_gen_counter.v file. create a symbol file from it. 
+  insert the symbol from it in the top-level design. 
+
+  create a sample_clk12m_counter symbol and insert. 
+
+
+assign pins: observed 100us 2v on pin-77 at power-up
+
+  input:   pin-12  3.3v lvttl  16ma
+  output:  pin-77  3.3v lvttl  16ma
+
+
+note pin 77 is connected to the LED via a jumper
+
