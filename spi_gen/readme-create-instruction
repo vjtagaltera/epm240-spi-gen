@@ -43,7 +43,7 @@ create the symbols from .v files: add the symbols to the design
   create a sample_clk12m_counter symbol and insert. 
 
 
-assign pins: observed 100us 2v on pin-77 at power-up
+assign pins: observed initial 100us 2v on pin-77 at power-up boot-up time
 
   input:   pin-12  3.3v lvttl  16ma
   output:  pin-77  3.3v lvttl  16ma
@@ -80,11 +80,35 @@ initial files
     -rwxrwxr-x   17487 Jul 24  2018 pll.v
     -rwxrwxr-x   13234 Jul 24  2018 pll_bb.v
 
+added files:
+
+    $ ls -l *xgen*
+    -rw-rw-r--     798 Jun  5 17:06 spi_xgen.sdc
+    -rwxrwxr-x   39655 Jun  5 17:50 spi_xgen_top.bdf
 
 recreate the de0nano bt6t6 project: 
 
-  follow de0nano-quartus-build-instructions and -example to experiment.
+  roughly follow de0nano-quartus-build-instructions and -example.
 
+  take out spi_gen.sdc , spi_gen_top.bdf from project. 
+  add fpga_bt656_top.bdf, pll.qip . 
+  set top-level entry to fpga_bt656_top . 
+  change device to ep4ce22f17c6 . 
+  import fpga_sbt10p.csv . 
+  build.
+  create jic for epcs64 on ep4ce22
 
+change top-level entity:
+
+  copy fpga_bt656_bt656_top.bdf to spi_xgen_top.bdf. 
+  remove fpga_bt656_top and add spi_xgen_top as top entity. 
+  remove sample_vh9x6_counter and add spi
+  remove sample_backpressure and wire hd vd through gates . 
+
+  exit and opne quartus again. import .csv again to be sure all io are 3.3v lvttl 4ma. 
+
+  observed initial about 180ms 3.3v pulse at power-up boot-up time. 
+
+change pins:
 
 
