@@ -500,6 +500,38 @@ agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
+(pin
+	(output)
+	(rect 824 208 1038 224)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "JP2_32_GPIO_125_OUT" (rect 90 0 208 17)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 824 232 1038 248)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "JP2_34_GPIO_127_OUT" (rect 90 0 208 17)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
 	(rect 168 296 216 328)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
@@ -1118,10 +1150,6 @@ agreement for further details.
 	(pt 160 312)
 )
 (connector
-	(pt 424 280)
-	(pt 616 280)
-)
-(connector
 	(text "counters_main[24]" (rect 506 352 589 369)(font "Intel Clear" (font_size 6)))
 	(pt 496 368)
 	(pt 616 368)
@@ -1132,11 +1160,6 @@ agreement for further details.
 	(pt 616 328)
 	(pt 496 328)
 	(bus)
-)
-(connector
-	(text "reseted" (rect 450 280 481 297)(font "Intel Clear" (font_size 6)))
-	(pt 424 296)
-	(pt 616 296)
 )
 (connector
 	(pt 600 584)
@@ -1642,9 +1665,60 @@ agreement for further details.
 	(pt 1008 776)
 	(pt 1016 776)
 )
+(connector
+	(pt 560 280)
+	(pt 560 272)
+)
+(connector
+	(pt 424 280)
+	(pt 560 280)
+)
+(connector
+	(pt 560 280)
+	(pt 616 280)
+)
+(connector
+	(pt 560 272)
+	(pt 800 272)
+)
+(connector
+	(pt 800 272)
+	(pt 800 216)
+)
+(connector
+	(pt 800 216)
+	(pt 824 216)
+)
+(connector
+	(pt 584 296)
+	(pt 584 288)
+)
+(connector
+	(text "reseted" (rect 450 280 481 297)(font "Intel Clear" (font_size 6)))
+	(pt 424 296)
+	(pt 584 296)
+)
+(connector
+	(pt 584 296)
+	(pt 616 296)
+)
+(connector
+	(pt 584 288)
+	(pt 816 288)
+)
+(connector
+	(pt 816 288)
+	(pt 816 240)
+)
+(connector
+	(pt 816 240)
+	(pt 824 240)
+)
 (junction (pt 168 656))
 (junction (pt 576 632))
 (junction (pt 224 1224))
 (junction (pt 168 1136))
 (junction (pt 128 1080))
 (junction (pt 1008 776))
+(junction (pt 560 280))
+(junction (pt 584 296))

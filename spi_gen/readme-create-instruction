@@ -111,4 +111,9 @@ change top-level entity:
 
 change pins:
 
+  change to output:   JP2_32_GPIO_125: inited    JP2_34_GPIO_127: reseted
+  observed: inited rise at 5s after power-up. 
+            clocks start to run after rested rise by pushing key1. 
+            vd neg stays high since power-on. 
+
 
