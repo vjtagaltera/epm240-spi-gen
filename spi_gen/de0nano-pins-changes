@@ -1,0 +1,15 @@
+
+
+
+
+
+d0: jp1 14 gpio 09   pin d5  -- from jp1_38_gpio_031_out  
+d2: jp1 16 gpio 011  pin a6  -- new
+d1: jp1 18 gpio 013  pin d6  
+d6: jp1 20 gpio 015  pin c6
+d5: jp1 22 gpio 017  pin e6
+d7: jp1 24 gpio 019  pin d8
+d4: jp1 26 gpio 021  pin f8
+d3: jp1 28 gpio 023  pin e9
+
+

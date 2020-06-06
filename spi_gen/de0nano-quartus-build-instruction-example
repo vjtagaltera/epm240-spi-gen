@@ -1,0 +1,21 @@
+
+[1] fpga repo
+
+    copy the fpga_s9_top.bdf to fpga_bt656_top.bdf.
+
+    create a new quartus prime project in the folder with: 
+        name: sbt10p
+        top-level design entity: fpga_bt656_top
+
+    add all files into the project
+    assign device to ep4ce22f17c6
+    import csv assignments
+    take out pll.v and pll_bb.v
+    build.
+
+    create jic for epcs64 on ep4ce22
+
+
+[2] 
+
+

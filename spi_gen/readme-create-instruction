@@ -61,3 +61,30 @@ create again the project:
   realestate usage: 94 logic elements used out of 240. 
 
 
+------------------------------------------------------------------------------
+instructions for de0nano 
+
+
+initial files
+
+    $ ls -l de0* fpga* pll*
+    -rw-rw-r--     272 Jul 24  2018 de0nano-pins-changes
+    -rw-rw-r--     851 Jul 24  2018 de0nano-quartus-build-instruction
+    -rw-rw-r--     385 Jul 24  2018 de0nano-quartus-build-instruction-example
+    -rwxrwxr-x  427015 Jul 24  2018 de0nano-s8-pins.png
+    -rwxrwxr-x   37992 Jul 24  2018 fpga_bt656_top.bdf
+    -rwxrwxr-x    3629 Jul 24  2018 fpga_sbt10p.csv
+    -rwxrwxr-x    3739 Jul 24  2018 pll.bsf
+    -rwxrwxr-x     495 Jul 24  2018 pll.ppf
+    -rwxrwxr-x     506 Jul 24  2018 pll.qip
+    -rwxrwxr-x   17487 Jul 24  2018 pll.v
+    -rwxrwxr-x   13234 Jul 24  2018 pll_bb.v
+
+
+recreate the de0nano bt6t6 project: 
+
+  follow de0nano-quartus-build-instructions and -example to experiment.
+
+
+
+

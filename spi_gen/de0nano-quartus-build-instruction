@@ -1,0 +1,35 @@
+
+[1] fpga repo
+
+    create a new quartus prime project in the folder with: 
+        name: s9p
+        top-level design entity: fpga_s9_top
+
+    add all files into the project
+    assign device to ep4ce22f17c6
+    import csv assignments
+    take out pll.v and pll_bb.v
+    build.
+
+    create jic for epcs64 on ep4ce22
+
+
+[2] timing captured by digital-view logic analyzer: 
+
+    clk c2:   12ns                     83.33MHz
+    hd hi/lo: 14.22us/7.58us (21.8us)  45.872 kHz
+    vd hi/lo:  5.23ms/2.79us (8ms)      125 Hz
+
+    pixels/line: 14.22/12*1000=1280
+    lines/frame: 5.23/21.8*1000=240
+
+
+[3] wiring to the ave board: 
+
+    connect fpga pins to facedet cam pins: 
+
+        G        to       G 10     via green
+        VD neg   to      vs 12     via orange
+        HD       to      hs 14     via yellow
+        clk c2   to     clk 13     via blue
+
