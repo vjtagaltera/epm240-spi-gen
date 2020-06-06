@@ -57,8 +57,7 @@ module sample_spi_gen_counter(rsted_in, clk1_in, clk2_in, vd_out, hd_out, pixels
 		if ( rstd_state == 1'b0 ) begin
 			if ( rsted_in == 1'b1 && rstd_last == 1'b0 )
 				rstd_state <= 1'b1;
-			else
-				rstd_state <= 1'b0;
+			
 			vd_out <= 1'b0;
 			hd_out <= 1'b0;
 			pixels_out <= 8'h80;
@@ -69,31 +68,44 @@ module sample_spi_gen_counter(rsted_in, clk1_in, clk2_in, vd_out, hd_out, pixels
 			state <= 4'b0;
 		end else begin
 			
-			if ( state == 0 ) begin // line
+			if ( state == 0 ) begin // begin
+				vd_out <= 1'b1;
+				state <= 4'b1;
+			end else if ( state == 1 ) begin // gap
 				pix_count <= pix_count + 1;
 				if ( pix_count >= linelen ) begin
-				   state <= 4'b1;
+					state <= 4'h2;
 					gap_count <= 4'b0;
+					if (pixels_out == 8'hff) 
+						pixels_out <= 8'h4; // avoid 0,1,2,3
+					else
+						pixels_out <= pixels_out + 1;
 				end
-			end else if ( state == 1 ) begin // gap
+			end else if ( state == 2 ) begin // gap
 				gap_count <= gap_count + 1;
 				if (gap_count >= gaplen) begin
 				   line_count <= line_count + 1;
 					if (line_count >= lines) begin
-					   state <= 4'h2;
+					   state <= 4'h3;
 					end else begin
-					   state <= 4'b1;
+						state <= 4'h1;
 						pix_count <= 14'b0;
 					end
 				end
-			end else if ( state == 2 ) begin // out
-				if (counts_copy >= 30'h1800000) begin
-				    vd_out <= 1'b0;
-					 rstd_state <= 1'b0;
-				end else if (counts_copy >= 30'h0c00000)
-				    vd_out <= 1'b0;
-			   else 
-					vd_out <= 1'b1;
+			end else if ( state == 3 ) begin // out
+				
+				//if (counts_copy >= 30'h1800000) begin
+				//	vd_out <= 1'b0;
+				//	rstd_state <= 1'b0;
+				//end else if (counts_copy >= 30'h0c00000)
+				//	vd_out <= 1'b0;
+				//else 
+				//	vd_out <= 1'b1;
+				vd_out <= 1'b0;
+				pixels_out <= {1'b1, pixels_out[2:0], state};
+				
+				if ( rsted_in == 1'b0 && rstd_last == 1'b1 )
+					rstd_state <= 1'b0;
 			end
 
 			//syncword <= {1'b1, fvh_fvh, fvh_p};
