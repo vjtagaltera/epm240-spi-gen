@@ -115,5 +115,6 @@ change pins:
   observed: inited rise at 5s after power-up. 
             clocks start to run after rested rise by pushing key1. 
             vd neg stays high since power-on. 
+  new pin assignments saved to:   readme-pins-jun6-xgen.csv
 
 
