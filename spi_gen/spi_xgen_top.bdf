@@ -952,77 +952,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 232 776 424 888)
-	(text "sample_spi_gen_counter" (rect 5 0 126 12)(font "Arial" ))
-	(text "inst5" (rect 8 96 30 113)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "rsted_in" (rect 0 0 38 12)(font "Arial" ))
-		(text "rsted_in" (rect 21 27 59 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "clk1_in" (rect 0 0 34 12)(font "Arial" ))
-		(text "clk1_in" (rect 21 43 55 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "clk2_in" (rect 0 0 34 12)(font "Arial" ))
-		(text "clk2_in" (rect 21 59 55 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 192 32)
-		(output)
-		(text "vd_out" (rect 0 0 34 12)(font "Arial" ))
-		(text "vd_out" (rect 143 27 177 39)(font "Arial" ))
-		(line (pt 192 32)(pt 176 32))
-	)
-	(port
-		(pt 192 48)
-		(output)
-		(text "hd_out" (rect 0 0 33 12)(font "Arial" ))
-		(text "hd_out" (rect 144 43 177 55)(font "Arial" ))
-		(line (pt 192 48)(pt 176 48))
-	)
-	(port
-		(pt 192 64)
-		(output)
-		(text "pixels_out[7..0]" (rect 0 0 75 12)(font "Arial" ))
-		(text "pixels_out[7..0]" (rect 108 59 183 71)(font "Arial" ))
-		(line (pt 192 64)(pt 176 64)(line_width 3))
-	)
-	(parameter
-		"linelen"
-		"1280"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"lines"
-		"720"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"gaplen"
-		"4"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"cntsmax"
-		"111111111111111111111111111111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(drawing
-		(rectangle (rect 16 16 176 96))
-	)
-	(annotation_block (parameter)(rect 424 680 784 776))
-)
-(symbol
 	(rect 952 696 1000 728)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst8" (rect 3 21 25 38)(font "Intel Clear" ))
@@ -1123,31 +1052,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 560 1304 608 1336)
-	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
-	(text "inst17" (rect 3 21 31 38)(font "Intel Clear" ))
-	(port
-		(pt 0 16)
-		(input)
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(line (pt 0 16)(pt 13 16))
-	)
-	(port
-		(pt 48 16)
-		(output)
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(line (pt 39 16)(pt 48 16))
-	)
-	(drawing
-		(line (pt 13 25)(pt 13 7))
-		(line (pt 13 7)(pt 31 16))
-		(line (pt 13 25)(pt 31 16))
-		(circle (rect 31 12 39 20))
-	)
-)
-(symbol
 	(rect 136 712 200 760)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst18" (rect 3 37 31 54)(font "Intel Clear" ))
@@ -1178,6 +1082,72 @@ agreement for further details.
 		(line (pt 14 12)(pt 14 37))
 		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
 	)
+)
+(symbol
+	(rect 280 792 440 904)
+	(text "sample_spi_gen_counter" (rect 5 0 126 12)(font "Arial" ))
+	(text "inst19" (rect 8 96 36 113)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "rsted_in" (rect 0 0 38 12)(font "Arial" ))
+		(text "rsted_in" (rect 21 27 59 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk1_in" (rect 0 0 34 12)(font "Arial" ))
+		(text "clk1_in" (rect 21 43 55 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clk2_in" (rect 0 0 34 12)(font "Arial" ))
+		(text "clk2_in" (rect 21 59 55 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "ss_out" (rect 0 0 33 12)(font "Arial" ))
+		(text "ss_out" (rect 112 27 145 39)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32))
+	)
+	(port
+		(pt 160 48)
+		(output)
+		(text "sc_out" (rect 0 0 33 12)(font "Arial" ))
+		(text "sc_out" (rect 112 43 145 55)(font "Arial" ))
+		(line (pt 160 48)(pt 144 48))
+	)
+	(port
+		(pt 160 64)
+		(output)
+		(text "sd_out" (rect 0 0 33 12)(font "Arial" ))
+		(text "sd_out" (rect 112 59 145 71)(font "Arial" ))
+		(line (pt 160 64)(pt 144 64))
+	)
+	(parameter
+		"linelen"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"lines"
+		"512"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"gaplen"
+		"4"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 144 96))
+	)
+	(annotation_block (parameter)(rect 440 712 609 788))
 )
 (connector
 	(text "clock48" (rect 138 248 172 265)(font "Intel Clear" (font_size 6)))
@@ -1503,68 +1473,6 @@ agreement for further details.
 	(pt 800 904)
 )
 (connector
-	(pt 168 808)
-	(pt 232 808)
-)
-(connector
-	(pt 168 904)
-	(pt 168 824)
-)
-(connector
-	(pt 168 824)
-	(pt 232 824)
-)
-(connector
-	(pt 192 920)
-	(pt 192 840)
-)
-(connector
-	(pt 192 840)
-	(pt 232 840)
-)
-(connector
-	(pt 424 808)
-	(pt 568 808)
-)
-(connector
-	(pt 568 808)
-	(pt 568 888)
-)
-(connector
-	(text "VD_OUT" (rect 658 872 695 889)(font "Intel Clear" (font_size 6)))
-	(pt 760 888)
-	(pt 568 888)
-)
-(connector
-	(pt 424 824)
-	(pt 552 824)
-)
-(connector
-	(pt 552 904)
-	(pt 552 824)
-)
-(connector
-	(text "HD_OUT" (rect 666 888 704 905)(font "Intel Clear" (font_size 6)))
-	(pt 552 904)
-	(pt 800 904)
-)
-(connector
-	(pt 424 840)
-	(pt 504 840)
-	(bus)
-)
-(connector
-	(pt 504 840)
-	(pt 504 920)
-	(bus)
-)
-(connector
-	(text "DATA_OUT[7..0]" (rect 642 904 715 921)(font "Intel Clear" (font_size 6)))
-	(pt 504 920)
-	(pt 760 920)
-	(bus)
-)
-(connector
 	(pt 928 808)
 	(pt 800 808)
 )
@@ -1680,10 +1588,6 @@ agreement for further details.
 	(pt 616 1320)
 )
 (connector
-	(pt 608 1320)
-	(pt 616 1320)
-)
-(connector
 	(text "reseted" (rect 56 1208 87 1225)(font "Intel Clear" (font_size 6)))
 	(pt 56 1224)
 	(pt 128 1224)
@@ -1713,11 +1617,6 @@ agreement for further details.
 (connector
 	(pt 128 1224)
 	(pt 128 1248)
-)
-(connector
-	(text "VD_OUT" (rect 426 1304 463 1321)(font "Intel Clear" (font_size 6)))
-	(pt 432 1320)
-	(pt 560 1320)
 )
 (connector
 	(pt 616 1240)
@@ -1762,10 +1661,6 @@ agreement for further details.
 	(pt 136 728)
 )
 (connector
-	(pt 168 784)
-	(pt 168 808)
-)
-(connector
 	(text "key_0_signal" (rect 66 728 129 745)(font "Intel Clear" ))
 	(pt 136 744)
 	(pt 72 744)
@@ -1788,11 +1683,6 @@ agreement for further details.
 	(pt 432 1240)
 )
 (connector
-	(text "clkc2" (rect 442 1256 464 1273)(font "Intel Clear" (font_size 6)))
-	(pt 432 1272)
-	(pt 584 1272)
-)
-(connector
 	(text "clkc2_g" (rect 338 1184 374 1201)(font "Intel Clear" ))
 	(pt 384 1200)
 	(pt 328 1200)
@@ -1811,6 +1701,95 @@ agreement for further details.
 	(text "clkc1" (rect 82 888 104 905)(font "Intel Clear" (font_size 6)))
 	(pt 168 904)
 	(pt 72 904)
+)
+(connector
+	(text "VD_OUT" (rect 658 872 695 889)(font "Intel Clear" (font_size 6)))
+	(pt 760 888)
+	(pt 632 888)
+)
+(connector
+	(text "HD_OUT" (rect 666 888 704 905)(font "Intel Clear" (font_size 6)))
+	(pt 800 904)
+	(pt 616 904)
+)
+(connector
+	(text "DATA_OUT[7..0]" (rect 642 904 715 921)(font "Intel Clear" (font_size 6)))
+	(pt 760 920)
+	(pt 600 920)
+	(bus)
+)
+(connector
+	(pt 192 920)
+	(pt 192 856)
+)
+(connector
+	(pt 192 856)
+	(pt 280 856)
+)
+(connector
+	(pt 168 904)
+	(pt 168 840)
+)
+(connector
+	(pt 280 840)
+	(pt 168 840)
+)
+(connector
+	(pt 168 784)
+	(pt 168 824)
+)
+(connector
+	(pt 280 824)
+	(pt 168 824)
+)
+(connector
+	(pt 600 920)
+	(pt 600 856)
+	(bus)
+)
+(connector
+	(pt 600 856)
+	(pt 576 856)
+	(bus)
+)
+(connector
+	(pt 616 904)
+	(pt 616 840)
+)
+(connector
+	(pt 440 840)
+	(pt 616 840)
+)
+(connector
+	(pt 632 888)
+	(pt 632 824)
+)
+(connector
+	(pt 440 824)
+	(pt 632 824)
+)
+(connector
+	(pt 440 856)
+	(pt 464 856)
+)
+(connector
+	(pt 464 856)
+	(pt 464 896)
+)
+(connector
+	(text "DATA_OUT[0]" (rect 474 880 541 897)(font "Intel Clear" ))
+	(pt 464 896)
+	(pt 544 896)
+)
+(connector
+	(text "HD_OUT" (rect 442 1256 480 1273)(font "Intel Clear" (font_size 6)))
+	(pt 432 1272)
+	(pt 584 1272)
+)
+(connector
+	(text "VD_OUT" (rect 426 1304 463 1321)(font "Intel Clear" (font_size 6)))
+	(pt 432 1320)
+	(pt 616 1320)
 )
 (junction (pt 576 632))
 (junction (pt 168 1136))
