@@ -954,7 +954,7 @@ agreement for further details.
 (symbol
 	(rect 272 792 440 904)
 	(text "sample_spi_gen_counter" (rect 5 0 126 12)(font "Arial" ))
-	(text "inst20" (rect 8 96 36 113)(font "Intel Clear" ))
+	(text "inst5" (rect 8 96 30 113)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1026,10 +1026,15 @@ agreement for further details.
 		"4"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"repeates"
+		"6"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 152 96))
 	)
-	(annotation_block (parameter)(rect 440 712 616 792))
+	(annotation_block (parameter)(rect 440 696 609 791))
 )
 (connector
 	(text "clock48" (rect 138 248 172 265)(font "Intel Clear" (font_size 6)))
