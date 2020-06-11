@@ -952,9 +952,9 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 272 792 440 904)
+	(rect 272 792 440 936)
 	(text "sample_spi_gen_counter" (rect 5 0 126 12)(font "Arial" ))
-	(text "inst5" (rect 8 96 30 113)(font "Intel Clear" ))
+	(text "inst8" (rect 8 128 30 145)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -984,6 +984,13 @@ agreement for further details.
 		(line (pt 0 80)(pt 16 80))
 	)
 	(port
+		(pt 0 96)
+		(input)
+		(text "rdy_in" (rect 0 0 30 12)(font "Arial" ))
+		(text "rdy_in" (rect 21 91 51 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
 		(pt 168 32)
 		(output)
 		(text "ss_out" (rect 0 0 33 12)(font "Arial" ))
@@ -1007,9 +1014,16 @@ agreement for further details.
 	(port
 		(pt 168 80)
 		(output)
-		(text "done_out" (rect 0 0 44 12)(font "Arial" ))
-		(text "done_out" (rect 110 75 154 87)(font "Arial" ))
+		(text "fr_out" (rect 0 0 29 12)(font "Arial" ))
+		(text "fr_out" (rect 123 75 152 87)(font "Arial" ))
 		(line (pt 168 80)(pt 152 80))
+	)
+	(port
+		(pt 168 96)
+		(output)
+		(text "done_out" (rect 0 0 44 12)(font "Arial" ))
+		(text "done_out" (rect 110 91 154 103)(font "Arial" ))
+		(line (pt 168 96)(pt 152 96))
 	)
 	(parameter
 		"linelen"
@@ -1032,7 +1046,7 @@ agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 152 96))
+		(rectangle (rect 16 16 152 128))
 	)
 	(annotation_block (parameter)(rect 440 696 609 791))
 )
@@ -1342,14 +1356,6 @@ agreement for further details.
 	(pt 800 272)
 )
 (connector
-	(pt 800 272)
-	(pt 800 216)
-)
-(connector
-	(pt 800 216)
-	(pt 824 216)
-)
-(connector
 	(pt 584 296)
 	(pt 584 288)
 )
@@ -1450,11 +1456,6 @@ agreement for further details.
 	(pt 328 1256)
 )
 (connector
-	(text "clkc2" (rect 82 904 104 921)(font "Intel Clear" (font_size 6)))
-	(pt 192 920)
-	(pt 72 920)
-)
-(connector
 	(pt 168 784)
 	(pt 168 824)
 )
@@ -1489,14 +1490,6 @@ agreement for further details.
 	(pt 208 712)
 )
 (connector
-	(pt 192 920)
-	(pt 192 872)
-)
-(connector
-	(pt 272 872)
-	(pt 192 872)
-)
-(connector
 	(text "clkc1" (rect 90 824 112 841)(font "Intel Clear" (font_size 6)))
 	(pt 80 840)
 	(pt 272 840)
@@ -1505,10 +1498,6 @@ agreement for further details.
 	(text "key_0_signal" (rect 90 840 153 857)(font "Intel Clear" ))
 	(pt 80 856)
 	(pt 272 856)
-)
-(connector
-	(pt 440 856)
-	(pt 496 856)
 )
 (connector
 	(pt 656 888)
@@ -1536,33 +1525,6 @@ agreement for further details.
 	(pt 624 920)
 	(pt 624 856)
 	(bus)
-)
-(connector
-	(pt 576 856)
-	(pt 624 856)
-	(bus)
-)
-(connector
-	(pt 440 872)
-	(pt 456 872)
-)
-(connector
-	(pt 456 872)
-	(pt 456 920)
-)
-(connector
-	(text "done_out" (rect 522 904 566 921)(font "Intel Clear" ))
-	(pt 456 920)
-	(pt 576 920)
-)
-(connector
-	(pt 496 856)
-	(pt 496 888)
-)
-(connector
-	(text "DATA_OUT[0]" (rect 506 872 573 889)(font "Intel Clear" ))
-	(pt 496 888)
-	(pt 576 888)
 )
 (connector
 	(text "done_out" (rect 474 1168 518 1185)(font "Intel Clear" ))
@@ -1596,6 +1558,57 @@ agreement for further details.
 (connector
 	(pt 168 312)
 	(pt 176 312)
+)
+(connector
+	(text "done_out" (rect 522 904 566 921)(font "Intel Clear" ))
+	(pt 576 920)
+	(pt 472 920)
+)
+(connector
+	(pt 472 920)
+	(pt 472 888)
+)
+(connector
+	(pt 440 888)
+	(pt 472 888)
+)
+(connector
+	(text "clkc2" (rect 90 856 112 873)(font "Intel Clear" (font_size 6)))
+	(pt 80 872)
+	(pt 272 872)
+)
+(connector
+	(text "frame_out" (rect 714 200 763 217)(font "Intel Clear" ))
+	(pt 704 216)
+	(pt 824 216)
+)
+(connector
+	(pt 608 856)
+	(pt 624 856)
+	(bus)
+)
+(connector
+	(text "DATA_OUT[0]" (rect 506 840 573 857)(font "Intel Clear" ))
+	(pt 440 856)
+	(pt 576 856)
+)
+(connector
+	(pt 440 872)
+	(pt 488 872)
+)
+(connector
+	(pt 488 872)
+	(pt 488 888)
+)
+(connector
+	(text "frame_out" (rect 498 872 547 889)(font "Intel Clear" ))
+	(pt 488 888)
+	(pt 576 888)
+)
+(connector
+	(text "earlyabort" (rect 90 872 139 889)(font "Intel Clear" ))
+	(pt 272 888)
+	(pt 80 888)
 )
 (junction (pt 168 1136))
 (junction (pt 128 1080))

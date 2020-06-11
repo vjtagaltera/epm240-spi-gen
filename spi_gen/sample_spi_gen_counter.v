@@ -1,7 +1,7 @@
 
-module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, ss_out, sc_out, sd_out, done_out);
-	input rsted_in, clk1_in, clk2_in, sel_in;
-	output ss_out, sc_out, sd_out, done_out;
+module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, rdy_in, ss_out, sc_out, sd_out, fr_out, done_out);
+	input rsted_in, clk1_in, clk2_in, sel_in, rdy_in;
+	output ss_out, sc_out, sd_out, fr_out, done_out;
 	/* 
 		clk1 is 1/4 period ahead of clk2. everything sync to rising-edge of clk2, 
 		except HD sync to rising-edge of clk1. a line will be linelen clock long. 
@@ -15,6 +15,7 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, ss_out, sc_out
 	reg rstd_state, rstd_last; // used to detect a rstd_in falling-edge
 	reg ss_out, sd_out;
 	wire sc_out;
+	reg fr_out;
 	reg done_out;
 	reg [7:0] pixels_out;	// pixel value
 	reg [29:0] counts;		// pixel count in a frame
@@ -44,6 +45,7 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, ss_out, sc_out
 		pixel_word_shift = 16'b0;
 		sc_mask = 1'b0;
 		sel_short = 1'b0;
+		fr_out = 1'b1;
 		done_out = 1'b1;
 		repeat_count = 16'b0;
 	end
@@ -92,16 +94,19 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, ss_out, sc_out
 			
 			if ( state == 0 ) begin // begin
 				ss_out <= 1'b1;
-				sd_out <= 1'b0;
-				state <= 4'h8; 
 				pixel_word <= 16'b1; // data init to 1
 				pix_count <= 14'b0;
 				gap_count <= 4'b0;
 				line_count <= 10'b0;
 				sc_mask <= 1'b0;
+				fr_out <= 1'b0;
 				done_out <= 1'b0;
 				
-				repeat_count <= repeat_count + 1;
+				sd_out <= 1'b0;
+				if ( rdy_in == 1'b1 ) begin
+					state <= 4'h8; 
+					repeat_count <= repeat_count + 1;
+				end
 				
 			end else if ( state == 8 ) begin // pre-1 1/2
 				pixel_word_shift <= pixel_word;
@@ -156,6 +161,7 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, ss_out, sc_out
 				ss_out <= 1'b1;
 				sc_mask <= 1'b0;
 				pixels_out <= {1'b1, pixels_out[2:0], state};
+				fr_out <= 1'b1;
 				done_out <= 1'b1;
 				
 				if ( rsted_in == 1'b0 && rstd_last == 1'b1 )
@@ -163,16 +169,19 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, ss_out, sc_out
 			end else if ( state == 4 ) begin // repeat
 				ss_out <= 1'b1;
 				sc_mask <= 1'b0;
+				fr_out <= 1'b1;
 				if (repeat_count >= repeates) begin
 					sel_short = 1'b1;
 				end
 				pix_count <= 14'b0;
 				gap_count <= 4'b0;
-				state <= 4'h5;
+				if ( rdy_in == 1'b0 ) begin
+					state <= 4'h5;
+				end
 			end else if ( state == 5 ) begin // repeat
 				pix_count <= pix_count + 1;
-				if (pix_count >= 14'h3ff0) begin // 2.5MHz about 6.4ms
-				//if (pix_count >= 14'h20)
+				//if (pix_count >= 14'h3ff0) begin // 2.5MHz about 6.4ms
+				if (pix_count >= 14'h20) begin
 					gap_count <= gap_count + 1;
 					pix_count <= 14'b0;
 					if (gap_count >= 1) begin // 0=6.4ms; 1=12.8ms; 2=19.2ms
