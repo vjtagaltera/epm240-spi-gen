@@ -88,6 +88,8 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, rdy_in, ss_out
 			pixel_word_shift <= 16'b0;
 			sc_mask <= 1'b0;
 			
+			fr_out <= 1'b1;
+			done_out <= 1'b1;
 			repeat_count <= 16'b0;
 			
 		end else begin
@@ -107,6 +109,9 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, rdy_in, ss_out
 					state <= 4'h8; 
 					repeat_count <= repeat_count + 1;
 				end
+
+				if ( rsted_in == 1'b0 && rstd_last == 1'b1 )
+					rstd_state <= 1'b0;
 				
 			end else if ( state == 8 ) begin // pre-1 1/2
 				pixel_word_shift <= pixel_word;
@@ -171,7 +176,7 @@ module sample_spi_gen_counter(rsted_in, clk1_in, sel_in, clk2_in, rdy_in, ss_out
 				sc_mask <= 1'b0;
 				fr_out <= 1'b1;
 				if (repeat_count >= repeates) begin
-					sel_short = 1'b1;
+					//sel_short = 1'b1;
 				end
 				pix_count <= 14'b0;
 				gap_count <= 4'b0;
